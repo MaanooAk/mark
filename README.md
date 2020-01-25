@@ -9,8 +9,8 @@ Example scenario:
 ```sh
 # I want all the .h
 $ mark *.h
-# And for some reason the main.cpp
-$ mark main.cpp
+# And for some reason the main.c
+$ mark main.c
 $ cd ../some/other/place
 # I want to move the files here
 # Lets be sure what I am about to do 
@@ -29,25 +29,25 @@ There are the shortcuts `-cp`, `-mv`, `-rm` and a general `-exec` that allows yo
 mark -exec 'curl -F file=@{} http:/... && echo Uploaded: {}'
 ```
 
-Also I have some king of selector (eg. fzf, dmenu) you can pipe to mark"
+Also If some king of selector is available (eg. fzf, dmenu), it can be used by piping them into mark:
 
 ```sh
-ls | fzf -m | mark
+ls | fzf -m | mark -
 ```
 
 ## Usage
 
-**marks** keeps a file with the absolute paths of all the marked files. A selection of items can be passed by a stdin pipe or as arguments, and the operation (add, remove, toggle) to be over the selection can be specified by the argument `-op`.
+**mark** keeps a file with the absolute paths of all the marked files. A selection of items can be passed by a stdin pipe or as arguments, and the operation (add, remove, toggle) to be over the selection can be specified by the argument `-op`.
 
-- `-`, `-c`, `-clear`, `--clear`: remove all marked items.
-- `p`, `-op`, `-op`, `--op` followed by `+`, `add`, `-`, `sub`, `^` or `xor`: set the operation.
-- `-e`, `-exec`, `--exec` followed by a shell command: set the command to execute with every marked item.
+- `-, -c, -clear, --clear`: remove all marked items.
+- `-p, -op, --op` followed by one of `+, add, -, sub, ^, xor`: set the operation.
+- `-e, -exec, --exec` followed by a shell command: set the command to execute with every marked item.
 
 In the shell commands that are provided to the `-exec`:
 - `{}` is replaced with one of the marked items.
 - `{ }` is replace with all the marked items separated by spaces.
 - If there is no `{}` or `{ }` and the shell command does not end with a `;`, a ` {}` is implied at the end.
-- If only the shell command contains one or more '{ }' and no '{}', it will be executed a single time.-
+- If only the shell command contains one or more `{ }` and no `{}`, it will be executed a single time.-
 
 The command line arguments `-cp`, `-mv`, `-rm` are shortcuts to `-exec 'cp { } .'`, `-exec 'mv { } .'` and `-exec 'rm { }'`.
 
