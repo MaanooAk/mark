@@ -60,3 +60,10 @@ git clone https://github.com/MaanooAk/mark.git
 cd mark
 go install
 ```
+
+Or
+
+```
+go get -u github.com/MaanooAk/mark
+```
+
