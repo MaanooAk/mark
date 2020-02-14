@@ -144,47 +144,39 @@ usage: mark [-] [-op OPERATION] [-in] [-out] item...
        mark
 
  -, -c, -clear, --clear
-        Remove all marked items.
-    
- -p, -op, --op OPERATION
-        Set what the input items will interact with existing marked items.
-        
-        OPERATION
+    Remove all marked items.
 
-        +, add  (default)
-           Add the new items to the existing items.
-        
-        -, sub, rem, exl
-           Remove the new items from the existing items.
-        
-        ^, xor, tog
-           Remove its item that exists and add those that don't.
+ -p, -op, --op OPERATION
+    Set what the input items will interact with existing marked items.
+
+    OPERATION
+
+    +, add  (default)  Add the new items to the existing items.
+    -, sub, rem, exl   Remove the new items from the existing items.
+    ^, xor, tog        Remove its item that exists and add those that don't.
 
  -s, -sub, -x, -xor
-        Shortcuts for '-op sub' and '-op xor'.
+    Shortcuts for '-op sub' and '-op xor'.
 
  -e, -exec, --exec SHELL_COMMAND
-        Execute the shell command with every marked item.
+    Execute the shell command with every marked item.
 
-        SHELL_COMMAND
+    SHELL_COMMAND
 
-        '{}' is replaced with an item.
-
-        '{ }' is replace with all the items separated by spaces.
-
-        If there is no '{}' or '{ }' and the shell command does not end with a ';', a ' {}' is implied at the end of the provided shell command. 
-        If only the shell command contains one or more '{ }' and no '{}', it will be executed a single time.
+    In the given shell command any '{}' is replaced with an item and any '{ }' is replace with all the items separated by spaces.
+    If there is no '{}' or '{ }' and the shell command does not end with a ';', a ' {}' is implied at the end of the provided shell command.
+    If only the shell command contains one or more '{ }' and no '{}', it will be executed a single time.
 
  -cp, -mv, -rm
-       Execute the predefined shell commands 'cp { } .', 'mv { } .' or 'rm { }'.
+    Execute the predefined shell commands 'cp { } .', 'mv { } .' and 'rm { }'.
 
  -i, -in, --in
-        Read items form stdin (implicit if a pipe is detected).
+    Read items form stdin (implicit if a pipe is detected).
 
  -o, -out, --out
-        Output all the marked items to the stdout (implicit if no arguments or pipe is detected).
+    Output all the marked items to the stdout (implicit if no arguments or pipe is detected).
 
  -r, -rel, --rel
-		The items will not expanded to the absolute path (must be used when the items are not filenames).
+    The items will not expanded to the absolute path (must be used when the items are not filenames).
 
 `

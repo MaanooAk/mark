@@ -1,8 +1,8 @@
 # mark
 
-Mark files and execute commands on them
+Mark files and execute commands on them.
 
-**mark** was created every time I wanted to mass move or copy files in a terminal, something always went wrong.
+**mark** was created because every time I wanted to mass move or copy files in a terminal, something always went wrong.
 
 Example scenario:
 
